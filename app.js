@@ -2,10 +2,16 @@
 
 
 function sortear() {
-    let quantidade = parseInt(document.getElementById('quantidade').value); // se não tivesse o .value ele iria recuperar o input HTML e não o valor digitado
+
     let de = parseInt(document.getElementById('de').value); // parseInt FORÇA o retorno de um INTEIRO
     let ate = parseInt(document.getElementById('ate').value);
     
+    if (verificar(de, ate)) {
+        return;
+    }
+
+    let quantidade = parseInt(document.getElementById('quantidade').value); 
+
     let sorteados = [];
     let numeroSorteado;
 
@@ -45,3 +51,11 @@ function alterarStatusBotao() {
     }
 }
 
+function verificar(min, max) {
+    if (min >= max){
+    alert ('Reveja se inseriu os dados corretamente!');
+    document.getElementById('de').value = '';
+    document.getElementById('ate').value = '';
+    return;
+    }
+}
