@@ -5,12 +5,22 @@ function sortear() {
 
     let de = parseInt(document.getElementById('de').value); // parseInt FORÇA o retorno de um INTEIRO
     let ate = parseInt(document.getElementById('ate').value);
+    let quantidade = parseInt(document.getElementById('quantidade').value); 
     
-    if (verificar(de, ate)) {
+    if (de >= ate) {
+        alert('Campo "Do número" deve ser inferior ao campo "Até o número".');
+        return;
+      }
+
+      if (quantidade > (ate - de + 1)) {
+        alert('Campo "Quantidade" deve ser menor ou igual ao intervalo informado no campo "Do número" até o campo "Até o número".');
+        return;
+      }
+
+
+    if (verifcarQtdDiferenca(de, ate, quantidade)) {
         return;
     }
-
-    let quantidade = parseInt(document.getElementById('quantidade').value); 
 
     let sorteados = [];
     let numeroSorteado;
